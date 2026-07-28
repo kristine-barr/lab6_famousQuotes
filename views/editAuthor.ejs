@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Update Author heading -->
+            <h1>Update Author</h1>
+
+            <div class="form-container">
+                <!-- Form to update the selected author's information  -->
+                <form method="POST" action="/author/edit">
+
+                    <!-- Store the authorId without displaying it on the page -->
+                    <input type="hidden" name="authorId" value="<%=authorInfo[0].authorId%>">
+
+                    <!-- Display the author's current first name -->
+                    <div class="form-row">
+                        <label for="fName">First Name:</label>
+                        <input type="text" id="fName" name="fName" value="<%=authorInfo[0].firstName%>">
+                    </div>
+
+
+
+                    <!-- Display the author's current last name -->
+                    <div class="form-row">
+                        <label for="lName">Last Name:</label>
+                        <input type="text" id="lName" name="lName" value="<%=authorInfo[0].lastName%>">
+                    </div>
+
+
+                    <!-- Display the author's current date of birth -->
+                    <div class="form-row">
+                        <label for="birthDate">Date of Birth:</label>
+                        <input type="date" id="birthDate" name="birthDate" value="<%=authorInfo[0].dobISO%>">
+                    </div>
+
+
+                    <!-- Display the author's current date of death -->
+                    <div class="form-row">
+                        <label for="deathDate">Date of Death:</label>
+                        <input type="date" id="deathDate" name="deathDate" value="<%= authorInfo[0].dodISO %>">
+                    </div>
+
+                    <!-- Select the author's current sex -->
+                    <div class="form-row">
+                        <label>Sex:</label>
+
+                        <div class="radio-group">
+
+                            <!-- Check Male when the database value is M -->
+                            <label>
+                                <input type="radio" name="sex" value="M" <% if (authorInfo[0].sex=="M" ) { %>
+                                checked
+                                <% } %>
+                                    > Male
+                            </label>
+
+                            <!-- Check Female when the database value is F -->
+                            <label>
+                                <input type="radio" name="sex" value="F" <% if (authorInfo[0].sex=="F" ) { %>
+                                checked
+                                <% } %>
+                                    > Female
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Text box with the author's current profession -->
+                    <div class="form-row">
+                        <label for="profession">Profession:</label>
+                        <input type="text" id="profession" name="profession" value="<%= authorInfo[0].profession %>">
+                    </div>
+                    
+                    <!-- Text box with the author's current country -->
+                    <div class="form-row">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" value="<%= authorInfo[0].country %>">
+                    </div>
+                    
+                    <!-- Text box with the author's current portrait value -->
+                    <div class="form-row">
+                        <label for="portrait">Portrait:</label>
+                        <input type="text" id="portrait" name="portrait" value="<%= authorInfo[0].portrait %>">
+                    </div>
+                    
+
+                    <!-- Text area with the author's current biography -->
+                    <div class="form-row">
+                        <label for="biography">Biography:</label>
+                        <textarea id="biography" name="biography"><%= authorInfo[0].biography %></textarea>
+                    </div>
+                    
+
+                    <!-- Submit the updated author information -->
+                    <button type="submit">Update Author</button>
+
+                </form>
+            </div>
+
+            <%- include("partials/footer") %>
+    </body>
+
+</html>

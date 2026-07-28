@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Add New Quote Heading -->
+            <h1>Add Quote</h1>
+
+            <!-- Display a success message after a quote has been added -->
+            <% if (typeof message !="undefined" ) { %>
+                <h3>
+                    <%= message %>
+                </h3>
+                <% } %>
+
+
+                    <div class="form-container">
+
+                        <!-- Form to collect information for a new quote -->
+                        <form method="POST" action="/quote/new">
+
+                            <!-- Dropdown list of authors -->
+                            <div class="form-row">
+                                <label for="authorId">Author:</label>
+
+                                <select name="authorId" id="authorId">
+
+                                    <option value="" disabled selected>
+                                        - Select an author -
+                                    </option>
+
+                                    <% for (let i=0; i < authors.length; i++) { %>
+
+                                        <option value="<%= authors[i].authorId %>">
+                                            <%= authors[i].firstName %>
+                                                <%= authors[i].lastName %>
+                                        </option>
+
+                                        <% } %>
+
+                                </select>
+                            </div>
+
+
+                            <!-- Dropdown list of quote categories -->
+                            <div class="form-row">
+                                <label for="category">Category:</label>
+                                <select name="category" id="category">
+
+                                    <option value="" disabled selected>
+                                        - Select a category -
+                                    </option>
+
+                                    <% for (let i=0; i < categories.length; i++) { %>
+
+                                        <option value="<%= categories[i].category %>">
+                                            <%= categories[i].category %>
+                                        </option>
+
+                                        <% } %>
+
+                                </select>
+                            </div>
+
+
+                            <!-- Text area for the new quote -->
+                            <div class="form-row">
+                                <label for="quote">Quote:</label>
+                                <textarea name="quote"></textarea>
+                            </div>
+
+                            <!-- Likes -->
+                            <div class="form-row">
+                                <label for="likes">Likes:</label>
+                                <input type="number" name="likes" id="likes" value="0" min="0">
+                            </div>
+
+
+                            <!-- Submit button to send the form data to the server -->
+                            <button type="submit">Add Quote</button>
+                        </form>
+                    </div>
+
+                    <%- include("partials/footer") %>
+    </body>
+
+</html>

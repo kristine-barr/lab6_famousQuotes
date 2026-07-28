@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Page heading -->
+            <h1>Authors</h1>
+
+            <!-- Loop through each author in the authors array -->
+            <% for (let i=0; i < authors.length; i++) { %>
+
+                <div class="author-row">
+                    <!-- Link to edit the selected author -->
+                    <a  class="update-link" href="/author/edit?authorId=<%= authors[i].authorId %>">UPDATE</a>
+
+                    <!-- Link to delete the selected author -->
+                    <a class="delete-link" href="/author/delete?authorId=<%= authors[i].authorId %>">DELETE</a>
+
+                    <!-- Display the author's first and last name -->
+                    <span>
+                        <%= authors[i].firstName %>
+                        <%= authors[i].lastName %>
+                    </span>
+                </div>
+
+
+
+                <% } %>
+
+                    <%- include("partials/footer") %>
+
+    </body>
+
+</html>

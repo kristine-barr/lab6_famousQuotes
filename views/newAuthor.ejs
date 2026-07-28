@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Add New Author Heading -->
+            <h1>Add Author </h1>
+
+            <!-- Display a success message after an author has been added -->
+            <% if (typeof message !="undefined" ) { %>
+                <h3>
+                    <%= message %>
+                </h3>
+                <% } %>
+
+                    <div class="form-container">
+
+                        <!-- Form to collect information for a new author -->
+                        <form method="POST" action="/author/new">
+
+                            <!-- Text box for the author's first name -->
+                            <div class="form-row">
+                                <label for="fName">First Name:</label>
+                                <input type="text" name="fName">
+                            </div>
+                            
+
+                            <!-- Text box for the author's last name -->
+                            <div class="form-row">
+                                <label for="lName">Last Name:</label>
+                                <input type="text" name="lName">
+                            </div>
+                            
+
+                            <!-- Date picker for the author's date of birth -->
+                            <div class="form-row">
+                                <label for="birthDate">Date of Birth:</label>
+                                <input type="date" name="birthDate">
+                            </div>
+
+                            <!-- Date picker for the author's date of death -->
+                            <div class="form-row">
+                                <label for="deathDate">Date of Death:</label>
+                                <input type="date" name="deathDate">
+                            </div>
+
+                            <!-- Radio buttons for author's sex -->
+                            <div class="form-row">
+
+                                <label>Sex:</label>
+
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" name="sex" value="M"> 
+                                        Male
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" name="sex" value="F"> 
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Textbox for the author's profession -->
+                            <div class="form-row">
+                                <label for="profession">Profession:</label>
+                                <input type="text" name="profession" id="profession">
+                            </div>
+
+
+                            <!-- Textbox for the author's country -->
+                            <div class="form-row">
+                                <label for="country">Country:</label>
+                                <input type="text" name="country" id="country">
+                            </div>
+
+                            <!-- Author's portrait -->
+                            <div class="form-row">
+                                <label for="portrait">Portrait:</label>
+                                <input type="text" name="portrait" id="portrait">
+                            </div>
+
+                            <!-- Author's biography -->
+                            <div class="form-row">
+                                <label for="biography">Biography:</label>
+                                <textarea name="biography" id="biography"></textarea>
+                            </div>
+
+                            <!-- Submit button to send the form data to the server -->
+                            <button type="submit">Add Author</button>
+                            
+                        </form>
+                    </div>
+
+                    <%- include("partials/footer") %>
+    </body>
+
+</html>

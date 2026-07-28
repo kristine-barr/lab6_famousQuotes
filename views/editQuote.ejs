@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Update Quote heading -->
+            <h1>Update Quote</h1>
+
+            <div class="form-container">
+
+                <!-- Form to update the selected author's information  -->
+                <form method="POST" action="/quote/edit">
+
+                    <!-- Store the quoteId without displaying it on the page -->
+                    <input type="hidden" name="quoteId" value="<%=quoteInfo[0].quoteId%>">
+
+                    <!-- Select the author -->
+                    <div class="form-row">
+                        <label for="authorId">Author:</label>
+
+                        <select name="authorId" id="authorId">
+
+                            <% for(let i=0; i < authors.length; i++) { %>
+
+                                <option value="<%= authors[i].authorId %>" <% if
+                                    (authors[i].authorId==quoteInfo[0].authorId) { %>
+                                    selected
+                                    <% } %>
+                                        >
+                                        <%= authors[i].firstName %>
+                                            <%= authors[i].lastName %>
+                                </option>
+
+                                <% } %>
+                        </select>
+                    </div>
+
+                    <!-- Select the category -->
+                    <div class="form-row">
+                        <label for="category">Category:</label>
+
+                        <select name="category" id="category">
+
+                            <% for (let i=0; i < categories.length; i++) { %>
+
+                                <option value="<%= categories[i].category %>" <% if
+                                    (categories[i].category==quoteInfo[0].category) { %>
+                                    selected
+                                    <% } %>
+                                        >
+                                        <%= categories[i].category %>
+                                </option>
+
+                                <% } %>
+
+                        </select>
+                    </div>
+
+                    <!-- Pre-populate the quote -->
+                    <div class="form-row">
+                        <label for="quote">Quote:</label>
+                        <textarea name="quote"><%= quoteInfo[0].quote %></textarea>
+                    </div>
+
+                    <!-- Pre-fill the current number of likes -->
+                    <div class="form-row">
+                        <label for="likes">Likes: </label>
+                        <input type="number" name="likes" id="likes" min="0" value="<%= quoteInfo[0].likes %>">
+                    </div>
+
+                    <!-- Submit the updated quote information -->
+                    <button type="submit">Update Quote</button>
+
+                </form>
+            </div>
+
+            <%- include("partials/footer") %>
+
+    </body>
+
+</html>

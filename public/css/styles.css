@@ -1,0 +1,209 @@
+/* =========================
+   Page
+========================= */
+
+body {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+
+    background-color: #FCEEC9;
+    color: #461312;
+
+    font-family: "Cormorant Infant", serif;
+}
+
+
+/* =========================
+   Headings and Logo
+========================= */
+
+h1 {
+    color: #E4281F;
+
+    font-family: "Abril Fatface", cursive;
+    font-size: 60px;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    gap: 20px;
+    justify-content: center;
+
+    margin: 30px 0;
+}
+
+button {
+    width: 100%;
+    padding: 8px 16px;
+
+    background-color: #FCEEC9;
+    color: #461312;
+
+    border: 2px solid #461312;
+    border-radius: 8px;
+
+    font-family: "Cormorant Infant", serif;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #FFBE54;
+    color: #E4281F;
+}
+
+
+/* =========================
+   Forms
+========================= */
+
+.form-container {
+    width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+
+    background-color: #FCEEC9;
+    border: 2px solid #461312;
+    border-radius: 12px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.form-row label {
+    width: auto;
+    text-align: right;
+}
+
+.form-row input[type="text"],
+.form-row input[type="date"],
+.form-row input[type="number"],
+.form-row select, 
+.form-row textarea {
+    width: 100%;
+    padding: 5px;
+
+    box-sizing: border-box;
+
+    background-color: #FCEEC9;
+    color: #461312;
+
+    border: 1px solid #461312;
+    border-radius: 4px;
+
+    font-family: "Cormorant Infant", serif;
+    font-size: 15px;
+}
+
+.form-row textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-group label {
+    width: auto;
+    text-align: left;
+    cursor: pointer;
+}
+
+.form-container button {
+    display: block;
+    width: auto;
+
+    margin: 35px auto 0;
+    padding: 10px 35px;
+}
+
+.form-container button:hover {
+    background-color: #E4281F;
+    color: #FCEEC9;
+}
+
+/* =========================
+   Author List 
+========================= */
+.author-row {
+    display: flex; 
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.update-link,
+.delete-link {
+    margin-right: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.update-link {
+    color:#461312;
+}
+
+.delete-link{
+    color:#E4281F
+}
+
+.update-link:hover,
+.delete-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+Quote Row
+========================= */
+.quote-row {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #461312;
+}
+
+/* =========================
+   Other Elements
+========================= */
+
+hr {
+    border: 1px solid #461312;
+}
+
+footer p {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =========================
+HOME LINK 
+========================= */
+a {
+    color:#461312;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #E4281F;
+}

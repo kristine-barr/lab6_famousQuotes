@@ -1,0 +1,5 @@
+# Installed Node packages
+node_modules/
+
+# Private environment variables
+.env

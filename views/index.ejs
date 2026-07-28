@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+
+        <!-- Main heading displayed on the home page -->
+        <img src="/img/logo.png" alt="Logo" class="logo">
+
+
+        <div class="button-grid">
+
+            <!-- Button to open the Add Author page -->
+            <form action="/author/new">
+                <button>Add Authors</button>
+            </form>
+
+
+            <!-- Button to open the Add Quote page -->
+            <form action="/quote/new">
+                <button>Add Quotes</button>
+            </form>
+
+            <!-- Button to display the list of authors -->
+            <form action="/authors">
+                <button>List Authors</button>
+            </form>
+
+            <!-- Button to display the list of quotes -->
+            <form action="/quotes">
+                <button>List Quotes</button>
+            </form>
+
+        </div>
+
+        <%- include("partials/footer") %>
+
+    </body>
+
+</html>

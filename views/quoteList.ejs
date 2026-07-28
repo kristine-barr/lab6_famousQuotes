@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+    <body>
+        <!-- Home Navigation -->
+        <%- include("partials/nav") %>
+
+            <!-- Page heading -->
+            <h1>Quotes</h1>
+
+            <!-- Loop through each author in the authors array -->
+            <% for (let i=0; i < quotes.length; i++) { %>
+
+                <div class="quote-row">
+                    <div class="quote-actions">
+                        <!-- Link to edit the selected quote -->
+                        <a class="update-link" href="/quote/edit?quoteId=<%= quotes[i].quoteId %>">UPDATE</a>
+
+                        <!-- Link to delete the selected quote -->
+                        <a class="delete-link" href="/quote/delete?quoteId=<%= quotes[i].quoteId %>">DELETE</a>
+                    </div>
+
+                    <!-- Display the quote -->
+                    <div class="quote-text">
+                        <%= quotes[i].quote %>
+                    </div>
+                </div>
+
+                <% } %>
+
+                    <%- include("partials/footer") %>
+
+    </body>
+
+</html>
